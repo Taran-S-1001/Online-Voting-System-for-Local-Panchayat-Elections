@@ -9,3 +9,10 @@ Queue* createQueue()
     q->rear=NULL;
     return q;
 }
+
+Node* createNode(Voter* val)
+{
+    Node* n=(Node*)malloc(sizeof(Node));
+    n->data=val;
+    n->next=NULL;
+}

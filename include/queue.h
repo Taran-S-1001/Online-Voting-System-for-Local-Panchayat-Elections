@@ -13,7 +13,8 @@ typedef struct Queue {
 } Queue;
 
 Queue* createQueue();
-void enqueue(Queue* q, int value);
+Node* createNode();
+void enqueue(Queue* q, Voter* value);
 int dequeue(Queue* q);
 int isEmpty(Queue* q);
 void freeQueue(Queue* q);
