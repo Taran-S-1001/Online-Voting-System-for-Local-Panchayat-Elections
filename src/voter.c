@@ -15,3 +15,23 @@ void registerVoter(int id,const char* name,const char* gender,int age)
     strcpy(newNode->gender,gender);
     enqueue(&voterQueue,newNode);
 }
+
+void displayVoters(Queue voterQueue)
+{
+    if(isEmpty(&voterQueue))
+    {
+        printf("No voters registered yet.\n");
+        return;
+    }
+    Node* temp=voterQueue.front;
+    printf("Registered Voters:\n");
+    while(temp!=NULL)
+    {
+        printf("Voter ID: %d, Name: %s, Gender: %s, Age: %d\n",
+               temp->data->voterID,
+               temp->data->name,
+               temp->data->gender,
+               temp->data->age);
+        temp=temp->next;
+    }
+}

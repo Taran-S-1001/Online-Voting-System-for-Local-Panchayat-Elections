@@ -1,9 +1,9 @@
 #ifdef QUEUE_H
 #define QUEUE_H
-
+#include "../include/voter.h"
 typedef struct Node 
 {
-    int data;
+    Voter* data;
     struct Node* next;
 } Node;
 
