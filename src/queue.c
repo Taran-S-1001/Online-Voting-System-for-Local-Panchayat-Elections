@@ -16,3 +16,18 @@ Node* createNode(Voter* val)
     n->data=val;
     n->next=NULL;
 }
+
+void enqueue(Queue* q,Voter* val)
+{
+    if(q->front==NULL)
+    {
+        q->front=createNode(val);
+        q->rear=q->front;
+    }
+    else
+    {
+        Node* temp=createNode(val);
+        q->rear->next=temp;
+        q=q->rear;
+    }
+}
