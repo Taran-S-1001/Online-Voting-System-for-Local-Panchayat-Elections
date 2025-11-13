@@ -14,7 +14,7 @@ typedef struct Queue {
 } Queue;
 
 Queue* createQueue();
-Node* createNode();
+Node* createNode(Voter* value);
 void enqueue(Queue* q, Voter* value);
 Node* dequeue(Queue* q);
 bool isEmpty(Queue* q);

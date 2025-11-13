@@ -8,7 +8,7 @@ typedef struct {
     int age;
     int hasVoted;
 } Voter;
-Voter* createNode(int id, const char *name, const char *gender, int age);
+Voter* createVoter(int id, const char *name, const char *gender, int age);
 void registerVoter(int id, const char* name, const char* gender, int age,Queue *voterQueue);
 void displayVoters(Queue *voterQueue);
 

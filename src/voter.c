@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-Voter* createNode(int id, const char* name, const char* gender, int age)
+Voter* createVoter(int id, const char* name, const char* gender, int age)
 {
     Voter* newNode=(Voter*)malloc(sizeof(Voter));
     newNode->age=age;
