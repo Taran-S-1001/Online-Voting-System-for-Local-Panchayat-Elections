@@ -95,7 +95,8 @@ int main()
                 printf("Invalid Choice\n");
         }
     } while (choice!=5);
-    
+    freeQueue(voterQueue);
+    freeTree(candidateTree);
     return 0;
 }
 
