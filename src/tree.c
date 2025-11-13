@@ -47,3 +47,23 @@ void insert(TreeNode* root, Candidate* data)
         }
     }
 }
+
+TreeNode* search(TreeNode* root, int candidateID) 
+{
+    while(root!=NULL) 
+    {
+        if(candidateID==root->data->candidateID) 
+        {
+            return root;
+        } 
+        else if(candidateID<root->data->candidateID) 
+        {
+            root=root->left;
+        } 
+        else 
+        {
+            root=root->right;
+        }
+    }
+    return NULL; 
+}
