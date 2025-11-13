@@ -21,6 +21,7 @@ int main()
     printf("Online Voting System for Panchayat Elections\n");
     printf("----------------------------------\n");
     int choice;
+    Queue *voterQueue=createQueue();
     do
     {
         clearscreen();
@@ -33,12 +34,33 @@ int main()
         switch(choice)
         {
             case 1:
-                continue;
+                clearscreen();
+                printf("Enter Voter name: ");
+                char name[50];
+                scanf("%s", name);
+                printf("Enter Voter ID: ");
+                int voterID;
+                scanf("%d", &voterID);
+                printf("Enter Voter Age: ");
+                int age;
+                scanf("%d", &age);
+                printf("Enter Voter Gender: ");
+                char gender[10];
+                scanf("%s", gender);
+                Voter* newVoter = createVoter(voterID, name, gender, age);
+                Node* newNode = createNode(newVoter);
+                enqueue(voterQueue, newNode);
                 break;
             case 2:
                 continue;
                 break;
             case 3:
+                continue;
+                break;
+            case 4:
+                continue;
+                break;
+            case 5:
                 continue;
                 break;
             default:
