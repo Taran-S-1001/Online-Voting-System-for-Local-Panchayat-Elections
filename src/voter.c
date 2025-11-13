@@ -1,11 +1,10 @@
-#include "../include/voter.h"
-#include "../include/queue.h"
+#include "voter.h"
+#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
-Voter* createVoter(int id, const char* name, const char* gender, int age)
+Voter* createVoter(int id,const char* name,const char* gender,int age)
 {
     Voter* newNode=(Voter*)malloc(sizeof(Voter));
     newNode->age=age;

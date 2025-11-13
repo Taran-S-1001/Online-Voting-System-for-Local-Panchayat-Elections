@@ -1,4 +1,5 @@
-#include "../include/tree.h"
+#include "candidate.h"
+#include "tree.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,12 +16,12 @@ TreeNode* createNode(Candidate* data)
     return newNode;
 }
 
-void insert(TreeNode* root, Candidate* data)
+TreeNode* insert(TreeNode* root, Candidate* data)
 {
     if(root==NULL)
     {
         root=createNode(data);
-        return;
+        return root;
     }
     else
     {

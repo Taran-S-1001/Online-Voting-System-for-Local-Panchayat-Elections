@@ -1,10 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include "include/tree.h"
-#include "include/candidate.h"
-#include "include/voter.h"
-#include "include/queue.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "tree.h"
+#include "candidate.h"
+#include "voter.h"
+#include "queue.h"
+
+void clearscreen(void);
 
 int main()
 {
@@ -39,12 +41,8 @@ int main()
                 printf("Enter Voter Gender: ");
                 char gender[10];
                 scanf("%s", gender);
-                printf("Enter Voted Candidate: ");
-                char votedCandidate[50];
-                scanf("%s", votedCandidate);
-                Voter* newVoter = createVoter(voterID, name, gender, age, votedCandidate);
-                Node* newNode = createNode(newVoter);
-                enqueue(voterQueue, newNode);
+                Voter* newVoter = createVoter(voterID, name, gender, age);
+                enqueue(voterQueue, newVoter);
                 break;
             case 2:
                 clearscreen();
@@ -58,7 +56,7 @@ int main()
                 char party[50];
                 scanf("%s", party);
                 Candidate* newCandidate = createCandidate(candidateID, cname, party);
-                insert(candidateTree, newCandidate);
+                candidateTree=insert(candidateTree, newCandidate);
                 break;
             case 3:
                 clearscreen();
@@ -106,6 +104,6 @@ void clearscreen()
 {
     for(int i=0;i<100;i++)
     {
-        printf("\n");
+        putchar('\n');
     }
 }

@@ -1,30 +1,33 @@
-#include "../include/candidate.h"
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include "candidate.h"
+#include "tree.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-Candidate* createCandidate(int id, const char* name, const char* party) {
-    Candidate* newCandidate = (Candidate*)malloc(sizeof(Candidate));
-    newCandidate->candidateID = id;
-    strncpy(newCandidate->name, name, sizeof(newCandidate->name) - 1);
-    newCandidate->name[sizeof(newCandidate->name) - 1] = '\0';
-    strncpy(newCandidate->party, party, sizeof(newCandidate->party) - 1);
-    newCandidate->party[sizeof(newCandidate->party) - 1] = '\0';
-    newCandidate->voteCount = 0;
-    return newCandidate;
+Candidate* createCandidate(int id,const char* name,const char* party)
+{
+    Candidate* c=malloc(sizeof(Candidate));
+    if(!c)return NULL;
+    c->candidateID=id;
+    strncpy(c->name,name,sizeof(c->name)-1);
+    c->name[sizeof(c->name)-1]='\0';
+    strncpy(c->party,party,sizeof(c->party)-1);
+    c->party[sizeof(c->party)-1]='\0';
+    c->voteCount=0;
+    return c;
 }
 
-void registerCandidate(int id, const char* name, const char* party, TreeNode* candidateTree) {
-    Candidate* newCandidate = createCandidate(id, name, party);
-    insert(candidateTree, newCandidate);
+void registerCandidate(int id,const char* name,const char* party,TreeNode* candidateTree)
+{
+    Candidate* newCandidate=createCandidate(id,name,party);
+    insert(candidateTree,newCandidate);
 }
 
-void displayCandidates(TreeNode* root) {
-    if (root == NULL) {
-        return;
-    }
+void displayCandidates(TreeNode* root)
+{
+    if(root==NULL) return;
     displayCandidates(root->left);
-    printf("Candidate ID: %d, Name: %s, Party: %s, Votes: %d\n",
+    printf("ID: %d, Name: %s, Party: %s, Votes: %d\n",
            root->data->candidateID,
            root->data->name,
            root->data->party,

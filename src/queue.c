@@ -1,4 +1,5 @@
-#include "../include/queue.h"
+#include "queue.h"
+#include "voter.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,7 +19,7 @@ Node* createQueueNode(Voter* val)
     return n;
 }
 
-void enqueue(Queue* q, Voter* val)
+void enqueue(Queue* q,Voter* val)
 {
     if(q==NULL)return;
     if(q->front==NULL)
@@ -55,8 +56,7 @@ void freeQueue(Queue* q)
     Node* n;
     while((n=dequeue(q))!=NULL)
     {
-        if (n->data) 
-        {
+        if(n->data){
             free(n->data->name);
             free(n->data->gender);
             free(n->data);
