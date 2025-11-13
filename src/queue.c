@@ -4,57 +4,64 @@
 
 Queue* createQueue()
 {
-    Queue* q=(Queue*)malloc(sizeof(Queue));
+    Queue* q=malloc(sizeof(Queue));
     q->front=NULL;
     q->rear=NULL;
     return q;
 }
 
-Node* createNode(Voter* val)
+Node* createQueueNode(Voter* val)
 {
-    Node* n=(Node*)malloc(sizeof(Node));
+    Node* n=malloc(sizeof(Node));
     n->data=val;
     n->next=NULL;
+    return n;
 }
 
-void enqueue(Queue* q,Voter* val)
+void enqueue(Queue* q, Voter* val)
 {
+    if(q==NULL)return;
     if(q->front==NULL)
     {
-        q->front=createNode(val);
+        q->front=createQueueNode(val);
         q->rear=q->front;
     }
     else
     {
-        Node* temp=createNode(val);
+        Node* temp=createQueueNode(val);
         q->rear->next=temp;
-        q->rear=q->rear->next;
+        q->rear=temp;
     }
 }
 
 Node* dequeue(Queue* q)
 {
+    if(q==NULL||q->front==NULL)return NULL;
     Node* temp=q->front;
-    q->front=q->front->next;
-    free(temp);
+    q->front=temp->next;
+    if(q->front==NULL)q->rear=NULL;
+    temp->next=NULL;
+    return temp;
 }
 
 bool isEmpty(Queue* q)
 {
-    if(q->front==q->rear)
-    {
-        return true;
-    }
-    return false;
+    return(q==NULL||q->front==NULL);
 }
 
 void freeQueue(Queue* q)
 {
-    Node* temp;
-    while(q->front!=q->rear)
+    if(q==NULL)return;
+    Node* n;
+    while((n=dequeue(q))!=NULL)
     {
-        temp=q->front;
-        q->front=q->front->next;
-        free(temp);
+        if (n->data) 
+        {
+            free(n->data->name);
+            free(n->data->gender);
+            free(n->data);
+        }
+        free(n);
     }
+    free(q);
 }

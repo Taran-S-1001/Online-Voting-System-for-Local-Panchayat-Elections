@@ -1,20 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<time.h>
-#include<math.h>
 #include "include/tree.h"
 #include "include/candidate.h"
 #include "include/voter.h"
 #include "include/queue.h"
 
-void clearscreen()
-{
-    for(int i=0;i<100;i++)
-    {
-        printf("\n");
-    }
-}
 int main()
 {
     printf("----------------------------------\n");
@@ -109,4 +100,12 @@ int main()
     } while (choice!=5);
     
     return 0;
+}
+
+void clearscreen()
+{
+    for(int i=0;i<100;i++)
+    {
+        printf("\n");
+    }
 }
