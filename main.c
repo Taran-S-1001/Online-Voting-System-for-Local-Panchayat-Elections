@@ -6,29 +6,29 @@
 #include "voter.h"
 #include "queue.h"
 
-void clearscreen(void);
+void clearscreen();
 
 int main()
 {
-    printf("----------------------------------\n");
-    printf("Online Voting System for Panchayat Elections\n");
-    printf("----------------------------------\n");
     int choice;
     Queue *voterQueue=createQueue();
     TreeNode* candidateTree=NULL;
     do
     {
         clearscreen();
-        printf("Press 1 for adding new voter\n");
-        printf("Press 2 for adding new candidate\n");
-        printf("Press 3 to start voting\n");
-        printf("Press 4 to display results\n");
-        printf("Press 5 to exit\n");
+        printf("----------------------------------------------\n");
+        printf("|Online Voting System for Panchayat Elections|\n");
+        printf("----------------------------------------------\n");
+        printf("|       Press 1 for adding new voter         |\n");
+        printf("|       Press 2 for adding new candidate     |\n");
+        printf("|       Press 3 to start voting              |\n");
+        printf("|       Press 4 to display results           |\n");
+        printf("|       Press 5 to exit                      |\n");
+        printf("----------------------------------------------\n");
         scanf("%d",&choice);
         switch(choice)
         {
             case 1:
-                clearscreen();
                 printf("Enter Voter name: ");
                 char name[50];
                 scanf("%s", name);
@@ -45,7 +45,6 @@ int main()
                 enqueue(voterQueue, newVoter);
                 break;
             case 2:
-                clearscreen();
                 printf("Enter Candidate name: ");  
                 char cname[50];
                 scanf("%s", cname);
@@ -59,7 +58,6 @@ int main()
                 candidateTree=insert(candidateTree, newCandidate);
                 break;
             case 3:
-                clearscreen();
                 printf("Voting started...\n");
                 Node* temp=voterQueue->front;
                 while(temp!=NULL)
@@ -85,9 +83,10 @@ int main()
                 }
                 break;
             case 4:
-                clearscreen();
                 printf("Election Results:\n");
                 displayCandidates(candidateTree);
+                getchar();
+                getchar();
                 break;
             case 5:
                 continue;
