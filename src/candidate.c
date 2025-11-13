@@ -19,3 +19,15 @@ void registerCandidate(int id, const char* name, const char* party, TreeNode* ca
     insert(candidateTree, newCandidate);
 }
 
+void displayCandidates(TreeNode* root) {
+    if (root == NULL) {
+        return;
+    }
+    displayCandidates(root->left);
+    printf("Candidate ID: %d, Name: %s, Party: %s, Votes: %d\n",
+           root->data->candidateID,
+           root->data->name,
+           root->data->party,
+           root->data->voteCount);
+    displayCandidates(root->right);
+}
