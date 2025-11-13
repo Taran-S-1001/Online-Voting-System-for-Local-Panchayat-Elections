@@ -11,5 +11,4 @@ typedef struct Candidate {
 Candidate* createCandidate(int id, const char* name, const char* party);
 void registerCandidate(int id, const char* name, const char* party, TreeNode* candidateTree);
 void displayCandidates(TreeNode* root);
-
 #endif

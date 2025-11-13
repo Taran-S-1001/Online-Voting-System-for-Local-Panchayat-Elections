@@ -14,3 +14,8 @@ Candidate* createCandidate(int id, const char* name, const char* party) {
     return newCandidate;
 }
 
+void registerCandidate(int id, const char* name, const char* party, TreeNode* candidateTree) {
+    Candidate* newCandidate = createCandidate(id, name, party);
+    insert(candidateTree, newCandidate);
+}
+
