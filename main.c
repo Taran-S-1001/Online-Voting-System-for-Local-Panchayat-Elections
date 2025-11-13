@@ -22,6 +22,7 @@ int main()
     printf("----------------------------------\n");
     int choice;
     Queue *voterQueue=createQueue();
+    TreeNode* candidateTree=NULL;
     do
     {
         clearscreen();
@@ -47,12 +48,26 @@ int main()
                 printf("Enter Voter Gender: ");
                 char gender[10];
                 scanf("%s", gender);
-                Voter* newVoter = createVoter(voterID, name, gender, age);
+                printf("Enter Voted Candidate: ");
+                char votedCandidate[50];
+                scanf("%s", votedCandidate);
+                Voter* newVoter = createVoter(voterID, name, gender, age, votedCandidate);
                 Node* newNode = createNode(newVoter);
                 enqueue(voterQueue, newNode);
                 break;
             case 2:
-                continue;
+                clearscreen();
+                printf("Enter Candidate name: ");  
+                char cname[50];
+                scanf("%s", cname);
+                printf("Enter Candidate ID: ");
+                int candidateID;
+                scanf("%d", &candidateID);
+                printf("Enter Candidate Party: ");
+                char party[50];
+                scanf("%s", party);
+                Candidate* newCandidate = createCandidate(candidateID, cname, party);
+                insert(candidateTree, newCandidate);
                 break;
             case 3:
                 continue;

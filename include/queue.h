@@ -1,6 +1,6 @@
 #ifndef QUEUE_H
-#define QUEUE_
-#include "../include/voter.h"
+#define QUEUE_H
+#include "voter.h"
 #include <stdbool.h>
 typedef struct Node 
 {
