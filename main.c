@@ -70,7 +70,29 @@ int main()
                 insert(candidateTree, newCandidate);
                 break;
             case 3:
-                continue;
+                printf("Voting started...\n");
+                Node* temp=voterQueue->front;
+                while(temp!=NULL)
+                {
+                    printf("Voter ID: %d, Name: %s, please cast your vote.\n",
+                           temp->data->voterID,
+                           temp->data->name);
+                    int voteID;
+                    printf("Enter Candidate ID to vote for: ");
+                    scanf("%d", &voteID);
+                    TreeNode* candidateNode = search(candidateTree, voteID);
+                    if(candidateNode!=NULL)
+                    {
+                        candidateNode->data->voteCount++;
+                        temp->data->hasVoted=1;
+                        printf("Vote casted successfully for %s.\n", candidateNode->data->name);
+                    }
+                    else
+                    {
+                        printf("Invalid Candidate ID. Vote not counted.\n");
+                    }
+                    temp=temp->next;
+                }
                 break;
             case 4:
                 continue;

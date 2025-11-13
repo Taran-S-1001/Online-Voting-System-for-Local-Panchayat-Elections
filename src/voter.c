@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-Voter* createVoter(int id, const char* name, const char* gender, int age, const char *votedCandidate)
+Voter* createVoter(int id, const char* name, const char* gender, int age)
 {
     Voter* newNode=(Voter*)malloc(sizeof(Voter));
     newNode->age=age;
@@ -15,13 +15,11 @@ Voter* createVoter(int id, const char* name, const char* gender, int age, const 
     strcpy(newNode->name,name);
     newNode->gender=(char*)malloc(strlen(gender)+1);
     strcpy(newNode->gender,gender);
-    newNode->votedCandidate=(char*)malloc(strlen(votedCandidate)+1);
-    strcpy(newNode->votedCandidate,votedCandidate);
     return newNode;
 }
-void registerVoter(int id,const char* name,const char* gender,int age, const char *votedCandidate, Queue *voterQueue)
+void registerVoter(int id,const char* name,const char* gender,int age,Queue *voterQueue)
 {
-    Voter* newNode=createVoter(id,name,gender,age,votedCandidate);
+    Voter* newNode=createVoter(id,name,gender,age);
     enqueue(voterQueue,newNode);
 }
 

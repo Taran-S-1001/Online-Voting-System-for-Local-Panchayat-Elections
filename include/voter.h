@@ -7,10 +7,9 @@ typedef struct {
     char *gender;
     int age;
     int hasVoted;
-    char *votedCandidate;
 } Voter;
-Voter* createVoter(int id, const char *name, const char *gender, int age, const char *votedCandidate);
-void registerVoter(int id, const char* name, const char* gender, int age, const char *votedCandidate, Queue *voterQueue);
+Voter* createVoter(int id, const char *name, const char *gender, int age);
+void registerVoter(int id, const char* name, const char* gender, int age, Queue *voterQueue);
 void displayVoters(Queue *voterQueue);
 
 #endif
