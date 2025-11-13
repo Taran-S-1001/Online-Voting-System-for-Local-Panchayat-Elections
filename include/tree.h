@@ -11,5 +11,5 @@ typedef struct TreeNode {
 TreeNode* createNode(Candidate* data);
 TreeNode* insert(TreeNode* root,Candidate* data);
 TreeNode* search(TreeNode* root,int candidateID);
-
+void freeTree(TreeNode* root);
 #endif

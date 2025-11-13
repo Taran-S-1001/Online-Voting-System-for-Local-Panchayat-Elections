@@ -68,3 +68,12 @@ TreeNode* search(TreeNode* root, int candidateID)
     }
     return NULL; 
 }
+
+void freeTree(TreeNode* root)
+{
+    if(root==NULL) return;
+    freeTree(root->left);
+    freeTree(root->right);
+    if(root->data) free(root->data);
+    free(root);
+}
